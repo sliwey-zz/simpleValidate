@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>simpleValidate</title>
+	<link rel="stylesheet" href="css/simpleValidate.css" />
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/simpleValidate.js"></script>
+	<script>
+		$(function() {
+			$("#form").simpleValidate({
+				rules: [
+					{
+						id: "name",
+						required: true,
+						minLength: 2,
+						maxLength: 5,
+						regExp: /^[a-z]+$/,
+						msg: {
+							requiredMsg: "请输入用户名",
+							correctMsg: "",
+							errorMsg: "只允许输入小写字母"
+						}
+					},
+					{
+						id: "age",
+						required: true,
+						regExp: "number",
+						msg: {
+							correctMsg: "",
+							errorMsg: "验证失败！"
+						}
+					}
+				],
+			});
+		});
+	</script>
+</head>
+<body>
+	<form id="form" action="">
+		<p><label>用户名：</label><input type="text" id="name" name="name" /></p>
+		<p><label>年龄：</label><input type="text" id="age" name="age" /></p>
+		<p><input type="submit" id="submit" value="提交" /></p>
+	</form>
+</body>
+</html>
